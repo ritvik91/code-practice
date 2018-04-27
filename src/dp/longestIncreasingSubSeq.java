@@ -31,6 +31,7 @@ public class longestIncreasingSubSeq {
 		return res;
 	}
 	
+	//https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/
 	//O(nlogn)
 	public int lisBS(int[] num) {
 		if(num==null || num.length==0)
