@@ -10,6 +10,17 @@ public class MinDepthOfTree {
 		 getMin(root,1);
 		 return min!=Integer.MAX_VALUE?min:1;
 	}
+	
+	public static int getMinn(TreeNode root) {
+		if(root==null)
+			return Integer.MAX_VALUE;
+		
+		if(root.left==null && root.right==null)
+			return 1;
+		
+		return Math.min(getMinn(root.left), getMinn(root.right)) + 1;
+	}
+	
 	private void getMin(TreeNode root, int depth) {
 
 		if(root.left==null && root.right==null) {
