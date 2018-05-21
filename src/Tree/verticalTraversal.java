@@ -2,6 +2,7 @@ package Tree;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.PriorityQueue;
 
 public class verticalTraversal {
 
@@ -17,6 +18,24 @@ public class verticalTraversal {
 	
 	public static void main(String[] arg) {
 		
+		PriorityQueue<Integer> hp = new PriorityQueue<Integer>((Integer c, Integer v)-> v-c);
+		
+		int count = 0;
+		int x = 1;
+		int y = 4;
+        
+        while(x!=0 || y!=0){
+            int xor = x ^ y;
+            
+            if(xor > 0)
+                count++;
+            if(x!=0)
+                x = x>>1;
+            if(y!=0)
+                y = y>>1;
+        }
+
+        System.out.println(count);
 	}
 	
 	void verticalOrder(Node node) 

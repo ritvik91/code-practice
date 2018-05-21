@@ -32,6 +32,48 @@ public class kthLargestInArray {
         
     }
     
+    //quickSelect
+    public int findKthLargestRec(int[] nums, int k){
+    
+        if(nums.length==0 || k <=0)
+            return -1;
+        
+        return helper(nums,k,0,nums.length-1);
+    }
+    
+    public int helper(int[] nums, int k, int l, int r){
+        if(r<l)
+            return -1;
+        
+        int i = partition2(nums,l,r);
+        if(i==nums.length-k)
+            return nums[i];
+        
+        if(i>nums.length-k)
+            return helper(nums,k,l,i-1);
+        else
+            return helper(nums,k,i+1,r);
+    }
+    
+    public int partition2(int[] nums, int l, int r){
+        
+        int pivot = nums[r];
+        int high = r-1;
+        
+        while(l<=high){
+            
+            if(nums[l]<pivot)
+                l++;
+            else{
+                swap(nums,l,high);
+                high--;
+            }
+        }
+        
+        swap(nums,l,r);
+        return l;
+    }
+    
  //   quickselect avg - O(n)
     public int kthSmallest(int[] arr, int l, int r, int k)
     {
@@ -122,7 +164,7 @@ public class kthLargestInArray {
     public static void main(String[] args) {
     	kthLargestInArray kth = new kthLargestInArray();
     	int[] a = {0,5,3,1,2,4};
-    	int s = kth.findKthLargest(a, 3);
+    	int s = kth.findKthLargestRec(a, 3);
     	System.out.println(s);
     }
 }

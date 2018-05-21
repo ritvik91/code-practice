@@ -1,5 +1,6 @@
 package Tree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class BSTSerializeDeserialize {
@@ -93,6 +94,7 @@ public class BSTSerializeDeserialize {
     
     private static StringBuilder help(TreeNode root, StringBuilder string) {
 		
+    	
     	if(root==null)
     		return string.append("#,");
     	
@@ -125,5 +127,26 @@ public class BSTSerializeDeserialize {
 		
 		return root;
 	
+	}
+	
+	 
+	public static void helper(TreeNode root, ArrayList<String> result, String s){
+	    if(root==null){
+	        return;
+	    }
+	 
+	    s = s+"->"+root.val;
+	 
+	    if(root.left==null &&root.right==null){
+	        result.add(s.substring(2));
+	        return;
+	    }
+	 
+	    if(root.left!=null){
+	        helper(root.left, result, s);
+	    }
+	    if(root.right!=null){
+	        helper(root.right, result, s);
+	    }
 	}
 }

@@ -1,5 +1,9 @@
 package dp;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.PriorityQueue;
+
 /**
  * https://www.geeksforgeeks.org/longest-repeated-subsequence/
  * @author Ritvik
@@ -33,5 +37,7 @@ public class LCRepeatedSequence {
 	
 	public static void main(String[] args) {
 		System.out.println(lcr("aabb"));
+		ArrayList<Integer> l = new ArrayList<>();
+		Collections.sort(l,(Integer s, Integer v)->{return s-v;});
 	}
 }
