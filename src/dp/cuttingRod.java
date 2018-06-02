@@ -16,7 +16,7 @@ public class cuttingRod {
 		
 		for(int i=1;i<n+1;i++)
 			for(int j=0;j<i;j++) {
-				dp[i] = Math.max(dp[i],Math.max(price[i], dp[j]+dp[i-j]));
+				dp[i] = Math.max(dp[i],Math.max(price[i-1], dp[j]+dp[i-j]));
 			}
 		
 		return dp[n];
@@ -24,7 +24,7 @@ public class cuttingRod {
 	
 	public static void main(String[] args) {
 		
-		int[] prices = {0,3,5,8,9,10,17,17,20};
+		int[] prices = {1,5,8,9,10,17,17,20};
 		int n = 8;
 		
 		System.out.println(getMaxProfit(prices, n));

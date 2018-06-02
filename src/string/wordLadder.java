@@ -59,7 +59,7 @@ public class wordLadder {
     }
     
     //bi-directional bfs O(b^(d/2) + b^(d/2))
-    //rknow rImpk
+    //rknow rkImp
     public int ladderLength2(String beginWord, String endWord, List<String> wordList) {
 
     	Set<String> beginSet = new HashSet<String>(), endSet = new HashSet<String>();
