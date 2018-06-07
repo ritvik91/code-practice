@@ -8,6 +8,10 @@ import java.util.Stack;
 //rkImp
 //https://www.geeksforgeeks.org/check-binary-tree-subtree-another-binary-tree-set-2/
 
+// rknow rkImp
+// 2nd idea - // https://leetcode.com/articles/subtree-of-another-tree/#approach-2-by-comparison-of-nodes-accepted
+// 572. Subtree of Another Tree
+
 //The idea is based on the fact that inorder and preorder/postorder uniquely
 //identify a binary tree. Tree S is a subtree of T if both inorder and preorder 
 //traversals of S arew substrings of inorder and preorder traversals of T respectively.
