@@ -40,7 +40,8 @@ public class contiguousSubArraySUm {
         return false;
         
     }
-    
+    // 1, -1, 5, 5, -5
+    // 1, 0, 5, 10, 5
     public static void main(String[] a) {
     	int[] num = {23,0,0,4,1,6};
     	int k = 0;
