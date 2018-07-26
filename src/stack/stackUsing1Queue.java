@@ -5,7 +5,7 @@ import java.util.Queue;
 
 class stack 
 {
-    Queue<Integer> q = new LinkedList<Integer>();
+    LinkedList<Integer> q = new LinkedList<Integer>();
      
     // Push operation
     void push(int val) 
@@ -14,7 +14,7 @@ class stack
         int size = q.size();
          
         // Add current element
-        q.add(val);
+        q.offer(val);
          
         // Pop (or Dequeue) all previous
         // elements and put them after current
@@ -23,7 +23,7 @@ class stack
         {
             // this will add front element into
             // rear of queue
-            int x = q.remove();
+            int x = q.poll();
             q.add(x);
         }
     }
@@ -36,7 +36,7 @@ class stack
             System.out.println("No elements");
             return -1;
         }
-        int x = q.remove();
+        int x = q.poll();
         return x;
     }
      
@@ -55,7 +55,12 @@ class stack
     }
  
     // Driver program to test above methods
-    public static void main(String[] args) 
+    
+}
+
+public class stackUsing1Queue {
+
+	public static void main(String[] args) 
     {
         stack s = new stack();
         s.push(10);
@@ -63,11 +68,7 @@ class stack
         System.out.println("Top element :" + s.top());
         s.pop();
         s.push(30);
-        s.pop();
+//        s.pop();
         System.out.println("Top element :" + s.top());
     }
-}
-
-public class stackUsing1Queue {
-
 }

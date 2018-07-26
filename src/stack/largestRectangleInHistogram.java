@@ -18,7 +18,7 @@ public class largestRectangleInHistogram {
 			}else {
 				int h = s.pop();
 				int l = s.isEmpty()?-1:s.peek();
-				int area = h*(i-l-1);
+				int area = arr[h]*(i-l-1);
 				max = Math.max(max, area);
 			}
 		}

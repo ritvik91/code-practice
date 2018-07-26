@@ -1,7 +1,11 @@
 package Tree;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Map;
+import java.util.Set;
 
 public class BSTSerializeDeserialize {
 
@@ -12,6 +16,12 @@ public class BSTSerializeDeserialize {
 		root.right.right = new TreeNode(5);
 		root.right.left = new TreeNode(4);
 		
+		Set<String> exc = new HashSet<String>(new ArrayList<String>());
+		Map<String,Integer> count = new HashMap<>();
+		
+		count.forEach((k,v) -> {
+			exc.add(k);
+		});
 		System.out.println("pre order= "+serializePreOder(root));
 		/*System.out.println(serialize(root));
 		root = deserialize(serialize(root));
