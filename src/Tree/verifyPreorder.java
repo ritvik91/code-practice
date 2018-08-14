@@ -1,39 +1,38 @@
 package Tree;
 
-import java.util.LinkedList;
+import java.util.Stack;
 
+/**
+ * https://www.geeksforgeeks.org/check-if-a-given-array-can-represent-preorder-traversal-of-binary-search-tree/
+ * @author Ritvik
+ *
+ * rkImp
+ */
 public class verifyPreorder {
 
-	public static boolean isValidSerialization(String preorder) {
-	    LinkedList<String> stack = new LinkedList<String>();
-	    String[] arr = preorder.split(",");
-	 
-	    for(int i=0; i<arr.length; i++){
-	        stack.add(arr[i]);
-	 
-	        while(stack.size()>=3 
-	            && stack.get(stack.size()-1).equals("#")
-	            && stack.get(stack.size()-2).equals("#")
-	            && !stack.get(stack.size()-3).equals("#")){
-	 
-	            stack.remove(stack.size()-1);
-	            stack.remove(stack.size()-1);
-	            stack.remove(stack.size()-1);
-	 
-	            stack.add("#");
-	        }
-	 
-	    }
-	 
-	    if(stack.size()==1 && stack.get(0).equals("#"))
-	        return true;
-	    else
-	        return false;
-	}
-	
-	public static void main(String[] args) {
-	
-		String input = "9,3,4,#,#,1,#,#,2,#,6,#,#";
-		isValidSerialization(input);
+	public static boolean verify(int[] arr) {
+		if(arr.length == 0)
+			return true;
+		
+		Stack<Integer> s = new Stack<>();
+		
+		int root = Integer.MIN_VALUE;
+		s.push(arr[0]);
+		
+		for(int i=1; i<arr.length; i++) {
+			if(arr[i] < root)
+				return false;
+			
+			if(arr[i] < s.peek()) {
+				s.push(arr[i]);
+			}else {
+				while(!s.isEmpty() && s.peek() < arr[i]) {
+					root = s.pop();
+				}
+				s.push(arr[i]);
+			}
+		}
+		
+		return true;
 	}
 }
